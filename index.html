@@ -4,14 +4,29 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Yash Shelar — Developer & Builder</title>
-  <meta name="description" content="Yash Shelar — B.Tech EXCS student, programmer, software developer and data analytics enthusiast.">
+  <meta name="description"
+        content="Yash Shelar — B.Tech EXCS student focused on Data Analytics, Data Science, Programming and Machine Learning.">
+
+  <meta name="theme-color" content="#05070c">
+
+  <title>Yash Shelar — Data • Code • Intelligence</title>
 
   <style>
+
+    :root {
+      --bg: #05070c;
+      --panel: #0b1019;
+      --text: #e8edf5;
+      --muted: #8994a7;
+      --blue: #4da3ff;
+      --purple: #8b7cff;
+      --line: rgba(255,255,255,0.09);
+    }
+
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
     }
 
     html {
@@ -19,10 +34,19 @@
     }
 
     body {
-      background: #050810;
-      color: #f5f7ff;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      line-height: 1.55;
+      overflow-x: hidden;
     }
 
     a {
@@ -31,698 +55,1136 @@
     }
 
     .container {
-      width: min(1100px, 90%);
+      width: min(1160px, 90%);
       margin: auto;
     }
 
-    /* NAVBAR */
+    /* =========================
+       NAVIGATION
+    ========================= */
 
     nav {
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
-      z-index: 100;
-      background: rgba(5, 8, 16, 0.82);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      z-index: 50;
+
+      background: rgba(5,7,12,0.72);
+      backdrop-filter: blur(18px);
+
+      border-bottom: 1px solid var(--line);
     }
 
-    .nav-inner {
-      height: 65px;
+    .nav {
+      height: 68px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .logo {
-      font-size: 20px;
-      font-weight: 800;
+      font-weight: 900;
       letter-spacing: 1px;
+      font-size: 20px;
     }
 
-    .logo span {
-      color: #35b8ff;
+    .logo b {
+      color: var(--blue);
     }
 
-    .nav-links {
+    .links {
       display: flex;
-      gap: 20px;
+      gap: 25px;
+
+      color: #aeb7c7;
       font-size: 14px;
-      color: #aeb7ca;
     }
 
-    .nav-links a:hover {
+    .links a {
+      transition: 0.2s;
+    }
+
+    .links a:hover {
       color: white;
     }
 
-    /* HERO */
+    .resume {
+      border: 1px solid var(--line);
+
+      padding: 9px 14px;
+
+      border-radius: 9px;
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       HERO
+    ========================= */
 
     .hero {
       min-height: 100vh;
-      display: flex;
+
+      padding:
+        130px
+        0
+        70px;
+
+      display: grid;
+
+      grid-template-columns:
+        1.05fr
+        0.95fr;
+
       align-items: center;
-      padding-top: 80px;
+
       position: relative;
-      overflow: hidden;
     }
 
-    .glow {
+    .hero::before {
+      content: "";
+
       position: absolute;
-      width: 320px;
-      height: 320px;
-      background: #174ea6;
-      filter: blur(140px);
-      opacity: 0.28;
-      right: -100px;
-      top: 100px;
+
+      width: 520px;
+      height: 520px;
+
+      right: -220px;
+      top: 80px;
+
+      background:
+        radial-gradient(
+          circle,
+          rgba(77,163,255,0.20),
+          transparent 65%
+        );
+
+      filter: blur(12px);
     }
 
-    .hero-content {
-      max-width: 850px;
-      position: relative;
-      z-index: 2;
-    }
+    .kicker {
+      color: var(--blue);
 
-    .eyebrow {
-      color: #35b8ff;
-      font-size: 14px;
+      font-size: 12px;
+
+      font-weight: 800;
+
       letter-spacing: 3px;
+
       text-transform: uppercase;
-      margin-bottom: 18px;
-      font-weight: bold;
+
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: clamp(48px, 11vw, 105px);
-      line-height: 0.95;
-      letter-spacing: -4px;
-      margin-bottom: 25px;
+      font-size: clamp(55px,9vw,112px);
+
+      line-height: 0.88;
+
+      letter-spacing: -6px;
+
+      margin-bottom: 28px;
     }
 
-    .gradient-text {
-      background: linear-gradient(90deg, #ffffff, #35b8ff);
+    .gradient {
+      background:
+        linear-gradient(
+          100deg,
+          #ffffff 15%,
+          #4da3ff 65%,
+          #8b7cff
+        );
+
       -webkit-background-clip: text;
+
       color: transparent;
     }
 
-    .hero-subtitle {
-      font-size: clamp(18px, 3vw, 26px);
-      color: #b9c2d4;
-      max-width: 720px;
-      margin-bottom: 30px;
+    .lead {
+      font-size:
+        clamp(
+          18px,
+          2.3vw,
+          25px
+        );
+
+      max-width: 690px;
+
+      color: #aeb7c7;
     }
 
-    .hero-subtitle strong {
+    .lead strong {
       color: white;
     }
 
-    .buttons {
+    .actions {
       display: flex;
-      flex-wrap: wrap;
+
       gap: 12px;
+
+      flex-wrap: wrap;
+
+      margin-top: 30px;
     }
 
     .btn {
-      padding: 13px 20px;
+      padding: 12px 17px;
+
       border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.15);
-      font-weight: 700;
+
+      border: 1px solid var(--line);
+
+      font-weight: 750;
+
+      font-size: 14px;
+
       transition: 0.25s;
     }
 
-    .btn-primary {
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn.primary {
       background: #168bd1;
+
       border-color: #168bd1;
     }
 
-    .btn:hover {
-      transform: translateY(-3px);
+    .socials {
+      display: flex;
+
+      gap: 16px;
+
+      margin-top: 25px;
+
+      color: #79869a;
+
+      font-size: 13px;
     }
 
-    /* SECTION */
+    .socials a:hover {
+      color: white;
+    }
+
+    /* =========================
+       3D MODEL AREA
+    ========================= */
+
+    .model-stage {
+      min-height: 540px;
+
+      display: grid;
+
+      place-items: center;
+
+      position: relative;
+    }
+
+    .model-placeholder {
+      width: min(410px,82vw);
+
+      aspect-ratio: 3 / 4;
+
+      border-radius: 28px;
+
+      border:
+        1px solid
+        rgba(77,163,255,0.24);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(77,163,255,0.08),
+          rgba(139,124,255,0.04)
+        );
+
+      display: grid;
+
+      place-items: center;
+
+      position: relative;
+
+      overflow: hidden;
+    }
+
+    .model-placeholder img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      display: block;
+    }
+
+    .model-note {
+      padding: 20px;
+
+      text-align: center;
+
+      color: var(--muted);
+    }
+
+    .model-note strong {
+      display: block;
+
+      color: white;
+
+      margin-bottom: 7px;
+    }
+
+    .wire {
+      position: absolute;
+
+      inset: 10%;
+
+      border:
+        1px solid
+        rgba(77,163,255,0.14);
+
+      border-radius: 45%;
+
+      transform: rotate(12deg);
+
+      pointer-events: none;
+    }
+
+    .float {
+      position: absolute;
+
+      border: 1px solid var(--line);
+
+      background:
+        rgba(8,12,20,0.72);
+
+      backdrop-filter: blur(12px);
+
+      padding: 9px 12px;
+
+      border-radius: 9px;
+
+      font:
+        700
+        11px/1.2
+        ui-monospace,
+        monospace;
+
+      color: #b8c5d9;
+    }
+
+    .f1 {
+      right: 0;
+      top: 15%;
+    }
+
+    .f2 {
+      left: 0;
+      top: 48%;
+    }
+
+    .f3 {
+      right: 2%;
+      bottom: 13%;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================= */
 
     section {
-      padding: 100px 0;
+      padding: 105px 0;
+
+      border-top:
+        1px solid
+        rgba(255,255,255,0.05);
     }
 
-    .section-label {
-      color: #35b8ff;
-      text-transform: uppercase;
+    .label {
+      color: var(--blue);
+
+      font-size: 11px;
+
+      font-weight: 800;
+
       letter-spacing: 3px;
-      font-size: 12px;
-      font-weight: bold;
+
+      text-transform: uppercase;
+
       margin-bottom: 12px;
     }
 
-    .section-title {
-      font-size: clamp(32px, 6vw, 55px);
-      margin-bottom: 35px;
-      letter-spacing: -2px;
+    .title {
+      font-size:
+        clamp(
+          34px,
+          5vw,
+          62px
+        );
+
+      letter-spacing: -3px;
+
+      line-height: 1;
+
+      margin-bottom: 38px;
     }
 
-    /* ABOUT */
+    /* =========================
+       STORY
+    ========================= */
 
-    .about-grid {
+    .story {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 50px;
+
+      grid-template-columns:
+        1.15fr
+        0.85fr;
+
+      gap: 60px;
     }
 
-    .about-text {
-      color: #aeb7ca;
+    .story p {
+      color: var(--muted);
+
       font-size: 18px;
-    }
 
-    .about-text p {
       margin-bottom: 18px;
+
+      max-width: 720px;
     }
 
-    .identity-card {
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.035);
-      border-radius: 18px;
-      padding: 28px;
-    }
+    .identity {
+      border:
+        1px solid
+        var(--line);
 
-    .identity-card h3 {
-      margin-bottom: 18px;
-    }
+      border-radius: 20px;
 
-    .identity-item {
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      color: #aeb7ca;
-    }
+      background:
+        rgba(255,255,255,0.025);
 
-    .identity-item:last-child {
-      border-bottom: none;
-    }
-
-    .identity-item span {
-      display: block;
-      color: white;
-      font-weight: bold;
-    }
-
-    /* LAB */
-
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .project {
-      border: 1px solid rgba(255,255,255,0.1);
-      background: linear-gradient(
-        145deg,
-        rgba(255,255,255,0.055),
-        rgba(255,255,255,0.015)
-      );
       padding: 25px;
-      border-radius: 18px;
-      min-height: 270px;
-      transition: 0.3s;
     }
 
-    .project:hover {
-      transform: translateY(-8px);
-      border-color: rgba(53,184,255,0.45);
+    .identity div {
+      padding: 14px 0;
+
+      border-bottom:
+        1px solid
+        var(--line);
+
+      color: var(--muted);
     }
 
-    .project-number {
-      color: #35b8ff;
-      font-size: 13px;
-      font-weight: bold;
-      margin-bottom: 30px;
+    .identity div:last-child {
+      border: 0;
     }
 
-    .project h3 {
-      font-size: 24px;
-      margin-bottom: 12px;
+    .identity b {
+      display: block;
+
+      color: white;
     }
 
-    .project p {
-      color: #9fa9bd;
-      font-size: 15px;
+    /* =========================
+       MODEL SECTION
+    ========================= */
+
+    .model2 {
+      display: grid;
+
+      grid-template-columns:
+        0.8fr
+        1.2fr;
+
+      gap: 50px;
+
+      align-items: center;
     }
+
+    .model2 .model-placeholder {
+      width:
+        min(
+          360px,
+          80vw
+        );
+    }
+
+    /* =========================
+       TAGS
+    ========================= */
 
     .tags {
       display: flex;
+
       flex-wrap: wrap;
-      gap: 7px;
+
+      gap: 9px;
+
       margin-top: 22px;
     }
 
     .tag {
-      padding: 5px 9px;
-      background: rgba(53,184,255,0.08);
-      border: 1px solid rgba(53,184,255,0.15);
-      border-radius: 20px;
-      color: #75ceff;
-      font-size: 11px;
-    }
+      padding: 7px 10px;
 
-    /* BUILD PROCESS */
+      border:
+        1px solid
+        rgba(77,163,255,0.16);
 
-    .process {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 10px;
-    }
+      background:
+        rgba(77,163,255,0.06);
 
-    .process-item {
-      padding: 22px 12px;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      text-align: center;
-      background: rgba(255,255,255,0.025);
-    }
+      border-radius: 30px;
 
-    .process-item strong {
-      display: block;
-      font-size: 18px;
-      margin-bottom: 5px;
-    }
+      color: #9ccfff;
 
-    .process-item span {
-      color: #7f8ba1;
       font-size: 12px;
     }
 
-    /* SKILLS */
+    /* =========================
+       PROJECTS
+    ========================= */
 
-    .skills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
+    .projects {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3,1fr);
+
+      gap: 16px;
     }
 
-    .skill {
-      padding: 10px 15px;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 30px;
-      color: #c9d1df;
-      background: rgba(255,255,255,0.03);
+    .card {
+      min-height: 330px;
+
+      padding: 25px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius: 20px;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.045),
+          rgba(255,255,255,0.012)
+        );
+
+      transition: 0.25s;
     }
 
-    /* CONTACT */
+    .card:hover {
+      transform: translateY(-7px);
 
-    .contact-box {
-      border: 1px solid rgba(53,184,255,0.2);
-      background: linear-gradient(
-        135deg,
-        rgba(53,184,255,0.08),
-        rgba(124,58,237,0.06)
-      );
-      border-radius: 24px;
-      padding: 45px 30px;
-      text-align: center;
+      border-color:
+        rgba(77,163,255,0.4);
     }
 
-    .contact-box h2 {
-      font-size: clamp(32px, 7vw, 60px);
+    .num {
+      color: var(--blue);
+
+      font:
+        800
+        11px
+        ui-monospace,
+        monospace;
+
+      margin-bottom: 35px;
+    }
+
+    .card h3 {
+      font-size: 25px;
+
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--muted);
+
+      font-size: 14px;
+    }
+
+    /* =========================
+       TIMELINE
+    ========================= */
+
+    .timeline {
+      border-left:
+        1px solid
+        rgba(77,163,255,0.25);
+
+      margin-left: 8px;
+
+      padding-left: 28px;
+    }
+
+    .event {
+      position: relative;
+
+      margin:
+        0
+        0
+        32px;
+    }
+
+    .event::before {
+      content: "";
+
+      position: absolute;
+
+      left: -35px;
+
+      top: 5px;
+
+      width: 11px;
+      height: 11px;
+
+      border-radius: 50%;
+
+      background: var(--blue);
+
+      box-shadow:
+        0 0 20px
+        rgba(77,163,255,0.6);
+    }
+
+    .event small {
+      color: var(--blue);
+
+      font-weight: 800;
+
+      letter-spacing: 1px;
+    }
+
+    .event h3 {
+      font-size: 23px;
+
+      margin: 5px 0;
+    }
+
+    .event p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       TOOLBOX
+    ========================= */
+
+    .toolbox {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap: 14px;
+    }
+
+    .toolgroup {
+      padding: 22px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius: 17px;
+
+      background:
+        rgba(255,255,255,0.02);
+    }
+
+    .toolgroup h3 {
+      font-size: 13px;
+
       margin-bottom: 15px;
+
+      color: white;
     }
 
-    .contact-box p {
-      color: #aeb7ca;
-      margin-bottom: 25px;
+    .toolgroup p {
+      color: var(--muted);
+
+      font-size: 14px;
     }
 
-    /* FOOTER */
+    /* =========================
+       CURRENTLY BUILDING
+    ========================= */
 
-    footer {
-      padding: 30px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      color: #6f7a90;
-      text-align: center;
+    .build {
+      display: grid;
+
+      grid-template-columns:
+        repeat(4,1fr);
+
+      gap: 12px;
+    }
+
+    .build div {
+      padding: 22px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius: 16px;
+    }
+
+    .build b {
+      display: block;
+
+      font-size: 24px;
+
+      margin-bottom: 8px;
+    }
+
+    .build span {
+      color: var(--muted);
+
       font-size: 13px;
     }
 
-    /* MOBILE */
+    /* =========================
+       CONTACT
+    ========================= */
 
-    @media (max-width: 750px) {
+    .contact {
+      padding: 55px 30px;
 
-      .nav-links {
+      border:
+        1px solid
+        rgba(77,163,255,0.2);
+
+      border-radius: 25px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(77,163,255,0.07),
+          rgba(139,124,255,0.05)
+        );
+
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-size:
+        clamp(
+          40px,
+          7vw,
+          78px
+        );
+
+      letter-spacing: -4px;
+    }
+
+    .contact p {
+      color: var(--muted);
+
+      margin:
+        12px
+        0
+        25px;
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+      padding: 30px 0;
+
+      color: #68758a;
+
+      border-top:
+        1px solid
+        var(--line);
+
+      font-size: 13px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media(max-width:800px) {
+
+      .links {
         display: none;
       }
 
-      h1 {
-        letter-spacing: -2px;
-      }
-
-      section {
-        padding: 75px 0;
-      }
-
-      .about-grid {
+      .hero {
         grid-template-columns: 1fr;
-        gap: 25px;
+
+        padding-top: 105px;
+      }
+
+      .model-stage {
+        min-height: 460px;
+
+        margin-top: 20px;
+      }
+
+      h1 {
+        letter-spacing: -3px;
+      }
+
+      .story,
+      .model2 {
+        grid-template-columns: 1fr;
+
+        gap: 30px;
       }
 
       .projects {
         grid-template-columns: 1fr;
       }
 
-      .process {
+      .toolbox,
+      .build {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .float {
+        font-size: 9px;
+      }
+
+      .f1 {
+        right: 2%;
+      }
+
+      .f2 {
+        left: 2%;
+      }
+    }
+
+    @media(max-width:500px) {
+
+      .container {
+        width: 88%;
+      }
+
+      .toolbox,
+      .build {
         grid-template-columns: 1fr;
       }
 
-      .process-item {
-        text-align: left;
+      .model-placeholder {
+        width: 100%;
       }
 
-      .hero {
-        min-height: 90vh;
+      .title {
+        letter-spacing: -2px;
       }
 
-      .hero-subtitle {
-        font-size: 18px;
-      }
-
-      .buttons {
+      .actions {
         flex-direction: column;
-        align-items: stretch;
       }
 
       .btn {
         text-align: center;
       }
     }
+
   </style>
 </head>
 
 <body>
 
-  <nav>
-    <div class="container nav-inner">
-      <a href="#" class="logo">YASH<span>.</span></a>
+<!-- =========================
+     NAVIGATION
+========================= -->
 
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#lab">Lab</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </div>
+<nav>
+
+  <div class="container nav">
+
+    <a class="logo" href="#">
+      YASH<b>.</b>
+    </a>
+
+    <div class="links">
+
+      <a href="#story">
+        Story
+      </a>
+
+      <a href="#lab">
+        Lab
+      </a>
+
+      <a href="#journey">
+        Journey
+      </a>
+
+      <a href="#toolbox">
+        Toolbox
+      </a>
+
+      <a href="#contact">
+        Contact
+      </a>
+
     </div>
-  </nav>
+
+    <a class="resume"
+       href="#"
+       onclick="alert('Add your resume PDF link here.');return false;">
+
+      Resume
+
+    </a>
+
+  </div>
+
+</nav>
 
 
-  <!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
-  <header class="hero">
-    <div class="glow"></div>
+<header class="container hero">
 
-    <div class="container">
-      <div class="hero-content">
+  <div>
 
-        <div class="eyebrow">
-          B.Tech EXCS @ VIT
-        </div>
+    <div class="kicker">
 
-        <h1>
-          YASH<br>
-          <span class="gradient-text">SHELAR</span>
-        </h1>
+      B.TECH EXCS @ VIT
+      ·
+      DATA / CODE / INTELLIGENCE
 
-        <p class="hero-subtitle">
-          <strong>Programming · Software Development · Data Analytics</strong>
-          <br><br>
-          I turn ideas into working technology.
-        </p>
-
-        <div class="buttons">
-          <a href="#lab" class="btn btn-primary">
-            Explore My Work
-          </a>
-
-          <a href="#contact" class="btn">
-            Let's Connect
-          </a>
-        </div>
-
-      </div>
     </div>
-  </header>
 
 
-  <!-- ABOUT -->
+    <h1>
 
-  <section id="about">
-    <div class="container">
+      YASH
 
-      <div class="section-label">01 — About</div>
+      <br>
 
-      <h2 class="section-title">
-        More than a student.
-      </h2>
+      <span class="gradient">
+        SHELAR
+      </span>
 
-      <div class="about-grid">
+    </h1>
 
-        <div class="about-text">
 
-          <p>
-            I'm Yash Shelar, a B.Tech Electronics and Computer Science
-            student at VIT Vidyalankar Institute of Technology.
-          </p>
+    <p class="lead">
 
-          <p>
-            I enjoy building practical software, experimenting with
-            technology, and solving problems through programming and data.
-          </p>
+      <strong>
+        Data Analyst · Aspiring Data Scientist
+      </strong>
 
-          <p>
-            My goal isn't simply to learn technologies.
-            It's to understand problems, build useful solutions,
-            and keep improving them.
-          </p>
+      <br>
 
-        </div>
+      I turn data into insights and ideas into working technology.
 
-        <div class="identity-card">
+    </p>
 
-          <h3>What I explore</h3>
 
-          <div class="identity-item">
-            <span>Programming</span>
-            Building logic and solving problems
-          </div>
+    <div class="actions">
 
-          <div class="identity-item">
-            <span>Software</span>
-            Turning ideas into applications
-          </div>
+      <a
+        class="btn primary"
+        href="#lab">
 
-          <div class="identity-item">
-            <span>Data</span>
-            Finding insights through analytics
-          </div>
+        Explore My Work
 
-          <div class="identity-item">
-            <span>AI</span>
-            Exploring intelligent applications
-          </div>
+      </a>
 
-        </div>
 
-      </div>
+      <a
+        class="btn"
+        href="#contact">
+
+        Let's Connect
+
+      </a>
+
     </div>
-  </section>
 
 
-  <!-- YASH'S LAB -->
+    <div class="socials">
 
-  <section id="lab">
-    <div class="container">
+      <a
+        href="https://github.com/yash0999514"
+        target="_blank">
 
-      <div class="section-label">02 — Yash's Lab</div>
+        GitHub
 
-      <h2 class="section-title">
-        Things I've built.
-      </h2>
-
-      <div class="projects">
-
-        <article class="project">
-
-          <div class="project-number">PROJECT 01</div>
-
-          <h3>Speech → Text</h3>
-
-          <p>
-            A speech-to-text application designed to convert spoken
-            audio into editable text with export functionality.
-          </p>
-
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">Speech Recognition</span>
-            <span class="tag">GUI</span>
-          </div>
-
-        </article>
+      </a>
 
 
-        <article class="project">
+      <a
+        href="https://www.linkedin.com/in/yash-shelar-971937294/"
+        target="_blank">
 
-          <div class="project-number">PROJECT 02</div>
+        LinkedIn
 
-          <h3>VaultX</h3>
-
-          <p>
-            A desktop data-management project built around practical
-            data-structure concepts and application workflows.
-          </p>
-
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">Data Structures</span>
-            <span class="tag">Desktop</span>
-          </div>
-
-        </article>
+      </a>
 
 
-        <article class="project">
+      <span>
+        Instagram
+      </span>
 
-          <div class="project-number">PROJECT 03</div>
-
-          <h3>Market Analytics</h3>
-
-          <p>
-            A data-focused project exploring stock information,
-            analysis, visualization, and technology-driven insights.
-          </p>
-
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">Data</span>
-            <span class="tag">Analytics</span>
-          </div>
-
-        </article>
-
-      </div>
     </div>
-  </section>
+
+  </div>
 
 
-  <!-- HOW I BUILD -->
+  <!-- 3D MODEL -->
 
-  <section>
-    <div class="container">
+  <div class="model-stage">
 
-      <div class="section-label">03 — Process</div>
+    <div class="model-placeholder">
 
-      <h2 class="section-title">
-        How I build.
-      </h2>
+      <!--
+        ADD YOUR REALISTIC MODEL IMAGE HERE:
 
-      <div class="process">
+        assets/yash-model.png
 
-        <div class="process-item">
-          <strong>01</strong>
-          <span>Understand</span>
-        </div>
+        We will create this image separately.
+      -->
 
-        <div class="process-item">
-          <strong>02</strong>
-          <span>Design</span>
-        </div>
-
-        <div class="process-item">
-          <strong>03</strong>
-          <span>Code</span>
-        </div>
-
-        <div class="process-item">
-          <strong>04</strong>
-          <span>Test</span>
-        </div>
-
-        <div class="process-item">
-          <strong>05</strong>
-          <span>Improve</span>
-        </div>
-
-      </div>
-    </div>
-  </section>
+      <img
+        src="assets/yash-model.png"
+        alt="Yash Shelar realistic 3D profile model"
+        onerror="this.style.display='none';this.nextElementSibling.style.display='block';"
+      >
 
 
-  <!-- SKILLS -->
+      <div
+        class="model-note"
+        style="display:none;">
 
-  <section id="skills">
-    <div class="container">
+        <strong>
+          3D IDENTITY
+        </strong>
 
-      <div class="section-label">04 — Toolbox</div>
+        Upload:
 
-      <h2 class="section-title">
-        Technologies I work with.
-      </h2>
+        <code>
+          assets/yash-model.png
+        </code>
 
-      <div class="skills">
-
-        <span class="skill">Python</span>
-        <span class="skill">Java</span>
-        <span class="skill">C / C++</span>
-        <span class="skill">Data Analytics</span>
-        <span class="skill">Data Visualization</span>
-        <span class="skill">HTML</span>
-        <span class="skill">CSS</span>
-        <span class="skill">JavaScript</span>
-        <span class="skill">Git & GitHub</span>
-        <span class="skill">SQL</span>
-        <span class="skill">AI Tools</span>
+        to activate the realistic model.
 
       </div>
 
+
+      <div class="wire"></div>
+
     </div>
-  </section>
 
 
-  <!-- CONTACT -->
+    <div class="float f1">
 
-  <section id="contact">
+      YASH.MODEL / 3D
 
-    <div class="container">
+    </div>
 
-      <div class="contact-box">
 
-        <div class="section-label">
-          05 — Contact
-        </div>
+    <div class="float f2">
 
-        <h2>
-          Have an idea?
-        </h2>
+      PYTHON · SQL · ML
+
+    </div>
+
+
+    <div class="float f3">
+
+      STATUS ● BUILDING
+
+    </div>
+
+  </div>
+
+</header>
+
+
+<!-- =========================
+     STORY
+========================= -->
+
+<section id="story">
+
+  <div class="container">
+
+    <div class="label">
+
+      01 — Story
+
+    </div>
+
+
+    <h2 class="title">
+
+      The person behind the data.
+
+    </h2>
+
+
+    <div class="story">
+
+      <div>
 
         <p>
-          Let's turn it into something real.
+
+          I completed my Diploma in Information Technology
+          from Government Polytechnic Thane in 2026 and am now
+          pursuing B.Tech in Electronics & Computer Science at
+          Vidyalankar Institute of Technology.
+
         </p>
 
-        <div class="buttons" style="justify-content:center;">
 
-          <a
-            class="btn btn-primary"
-            href="mailto:yashshelar@example.com">
-            Email Me
-          </a>
+        <p>
 
-          <a
-            class="btn"
-            href="https://www.linkedin.com/in/yash-shelar-971937294/"
-            target="_blank">
-            LinkedIn
-          </a>
+          My focus is moving toward Data Analytics and Data Science,
+          while continuing to build practical software and
+          machine-learning projects.
 
-          <a
-            class="btn"
-            href="https://github.com/yash0999514"
-            target="_blank">
-            GitHub
-          </a>
+        </p>
+
+      </div>
+
+
+      <div class="identity">
+
+        <div>
+
+          <b>
+            Education
+          </b>
+
+          Diploma IT → B.Tech EXCS
+
+        </div>
+
+
+        <div>
+
+          <b>
+            Focus
+          </b>
+
+          Data Analytics · Data Science
+
+        </div>
+
+
+        <div>
+
+          <b>
+            Build Style
+          </b>
+
+          Practical · Curious · Iterative
 
         </div>
 
@@ -730,13 +1192,671 @@
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <footer>
-    © 2026 Yash Shelar · Built with curiosity.
-  </footer>
+<!-- =========================
+     3D IDENTITY
+========================= -->
 
+<section>
+
+  <div class="container">
+
+    <div class="label">
+
+      02 — Identity
+
+    </div>
+
+
+    <h2 class="title">
+
+      YASH.MODEL
+
+    </h2>
+
+
+    <div class="model2">
+
+      <div class="model-placeholder">
+
+        <img
+          src="assets/yash-model.png"
+          alt="Yash Shelar 3D identity model"
+        >
+
+        <div class="wire"></div>
+
+      </div>
+
+
+      <div>
+
+        <p class="lead">
+
+          A digital identity built around
+
+          <strong>
+            data, software and intelligence.
+          </strong>
+
+        </p>
+
+
+        <div class="tags">
+
+          <span class="tag">
+            DATA
+          </span>
+
+          <span class="tag">
+            SOFTWARE
+          </span>
+
+          <span class="tag">
+            AI
+          </span>
+
+          <span class="tag">
+            PYTHON
+          </span>
+
+          <span class="tag">
+            SQL
+          </span>
+
+          <span class="tag">
+            MACHINE LEARNING
+          </span>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     PROJECT LAB
+========================= -->
+
+<section id="lab">
+
+  <div class="container">
+
+    <div class="label">
+
+      03 — Yash's Lab
+
+    </div>
+
+
+    <h2 class="title">
+
+      Experiments that became projects.
+
+    </h2>
+
+
+    <div class="projects">
+
+
+      <!-- PROJECT 1 -->
+
+      <article class="card">
+
+        <div class="num">
+          LAB / 001
+        </div>
+
+
+        <h3>
+          SPEECH → TEXT
+        </h3>
+
+
+        <p>
+
+          A speech-to-text application focused on converting
+          spoken audio into usable digital text.
+
+        </p>
+
+
+        <div class="tags">
+
+          <span class="tag">
+            Python
+          </span>
+
+          <span class="tag">
+            Speech Recognition
+          </span>
+
+          <span class="tag">
+            GUI
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 2 -->
+
+      <article class="card">
+
+        <div class="num">
+          LAB / 002
+        </div>
+
+
+        <h3>
+          VAULTX
+        </h3>
+
+
+        <p>
+
+          A desktop data-management project applying practical
+          data-structure concepts to an application workflow.
+
+        </p>
+
+
+        <div class="tags">
+
+          <span class="tag">
+            Python
+          </span>
+
+          <span class="tag">
+            Data Structures
+          </span>
+
+          <span class="tag">
+            Database
+          </span>
+
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 3 -->
+
+      <article class="card">
+
+        <div class="num">
+          LAB / 003
+        </div>
+
+
+        <h3>
+          STOCK MARKET PREDICTION
+        </h3>
+
+
+        <p>
+
+          A data-focused project exploring stock information,
+          analysis, visualization and predictive modelling.
+
+        </p>
+
+
+        <div class="tags">
+
+          <span class="tag">
+            Python
+          </span>
+
+          <span class="tag">
+            Data
+          </span>
+
+          <span class="tag">
+            Machine Learning
+          </span>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     JOURNEY
+========================= -->
+
+<section id="journey">
+
+  <div class="container">
+
+    <div class="label">
+
+      04 — Journey
+
+    </div>
+
+
+    <h2 class="title">
+
+      From IT to data.
+
+    </h2>
+
+
+    <div class="timeline">
+
+
+      <div class="event">
+
+        <small>
+          JUN 2025 — AUG 2025
+        </small>
+
+
+        <h3>
+          Data Scientist Intern · Concept Simplified
+        </h3>
+
+
+        <p>
+
+          Industry internship experience in a
+          data-science-oriented role.
+
+        </p>
+
+      </div>
+
+
+      <div class="event">
+
+        <small>
+          2026
+        </small>
+
+
+        <h3>
+          Diploma in Information Technology
+        </h3>
+
+
+        <p>
+          Government Polytechnic Thane · Completed
+        </p>
+
+      </div>
+
+
+      <div class="event">
+
+        <small>
+          2026 — 2029
+        </small>
+
+
+        <h3>
+          B.Tech Electronics & Computer Science
+        </h3>
+
+
+        <p>
+          Vidyalankar Institute of Technology · Expected 2029
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     TOOLBOX
+========================= -->
+
+<section id="toolbox">
+
+  <div class="container">
+
+    <div class="label">
+
+      05 — Toolbox
+
+    </div>
+
+
+    <h2 class="title">
+
+      Built around data.
+
+    </h2>
+
+
+    <div class="toolbox">
+
+
+      <div class="toolgroup">
+
+        <h3>
+          CORE DATA
+        </h3>
+
+        <p>
+
+          Python · SQL · Pandas · NumPy ·
+          Data Analytics · Data Visualization ·
+          Machine Learning
+
+        </p>
+
+      </div>
+
+
+      <div class="toolgroup">
+
+        <h3>
+          SUPPORTING TECH
+        </h3>
+
+        <p>
+
+          Excel · Matplotlib · Git · GitHub ·
+          Java · C/C++
+
+        </p>
+
+      </div>
+
+
+      <div class="toolgroup">
+
+        <h3>
+          PROFESSIONAL
+        </h3>
+
+        <p>
+
+          Problem Solving · Leadership ·
+          Communication · Teamwork
+
+        </p>
+
+      </div>
+
+
+      <div class="toolgroup">
+
+        <h3>
+          INTEREST
+        </h3>
+
+        <p>
+
+          Data Science · Intelligent Applications ·
+          Practical Software
+
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CURRENTLY BUILDING
+========================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="label">
+
+      06 — Now
+
+    </div>
+
+
+    <h2 class="title">
+
+      Currently building.
+
+    </h2>
+
+
+    <div class="build">
+
+
+      <div>
+
+        <b>
+          01
+        </b>
+
+        <span>
+          Advanced Data Analytics
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <b>
+          02
+        </b>
+
+        <span>
+          Machine Learning Projects
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <b>
+          03
+        </b>
+
+        <span>
+          Data Science Portfolio
+        </span>
+
+      </div>
+
+
+      <div>
+
+        <b>
+          04
+        </b>
+
+        <span>
+          Next Standout Project
+        </span>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     BEYOND CODE
+========================= -->
+
+<section>
+
+  <div class="container">
+
+    <div class="label">
+
+      07 — Beyond Code
+
+    </div>
+
+
+    <h2 class="title">
+
+      Content. Research. Communication.
+
+    </h2>
+
+
+    <p class="lead">
+
+      YouTube and content creation add a creative and
+      communication layer to my technical work.
+
+    </p>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+  <div class="container">
+
+    <div class="contact">
+
+      <div class="label">
+
+        08 — Contact
+
+      </div>
+
+
+      <h2>
+
+        LET'S BUILD
+        <br>
+        SOMETHING.
+
+      </h2>
+
+
+      <p>
+
+        Have an interesting problem,
+        collaboration idea or opportunity?
+
+      </p>
+
+
+      <div
+        class="actions"
+        style="justify-content:center;"
+      >
+
+
+        <!-- REPLACE EMAIL -->
+
+        <a
+          class="btn primary"
+          href="mailto:yash.shelar@vit.edu.in"
+        >
+
+          Professional Email
+
+        </a>
+
+
+        <a
+          class="btn"
+          href="https://github.com/yash0999514"
+          target="_blank"
+        >
+
+          GitHub
+
+        </a>
+
+
+        <a
+          class="btn"
+          href="https://www.linkedin.com/in/yash-shelar-971937294/"
+          target="_blank"
+        >
+
+          LinkedIn
+
+        </a>
+
+
+        <!-- REPLACE INSTAGRAM LINK -->
+
+        <a
+          class="btn"
+          href="#"
+        >
+
+          Instagram
+
+        </a>
+
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+  <div class="container">
+
+    YASH SHELAR
+    ·
+    DATA • CODE • INTELLIGENCE
+    ·
+    © 2026
+
+  </div>
+
+</footer>
 
 </body>
-  </html>
+</html>
