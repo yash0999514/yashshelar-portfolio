@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Yash Shelar — Developer & Builder</title>
+  <meta name="description" content="Yash Shelar — B.Tech EXCS student, programmer, software developer and data analytics enthusiast.">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: #050810;
+      color: #f5f7ff;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: auto;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(5, 8, 16, 0.82);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .logo span {
+      color: #35b8ff;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      font-size: 14px;
+      color: #aeb7ca;
+    }
+
+    .nav-links a:hover {
+      color: white;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glow {
+      position: absolute;
+      width: 320px;
+      height: 320px;
+      background: #174ea6;
+      filter: blur(140px);
+      opacity: 0.28;
+      right: -100px;
+      top: 100px;
+    }
+
+    .hero-content {
+      max-width: 850px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .eyebrow {
+      color: #35b8ff;
+      font-size: 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(48px, 11vw, 105px);
+      line-height: 0.95;
+      letter-spacing: -4px;
+      margin-bottom: 25px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff, #35b8ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(18px, 3vw, 26px);
+      color: #b9c2d4;
+      max-width: 720px;
+      margin-bottom: 30px;
+    }
+
+    .hero-subtitle strong {
+      color: white;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      padding: 13px 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.15);
+      font-weight: 700;
+      transition: 0.25s;
+    }
+
+    .btn-primary {
+      background: #168bd1;
+      border-color: #168bd1;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    /* SECTION */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      color: #35b8ff;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(32px, 6vw, 55px);
+      margin-bottom: 35px;
+      letter-spacing: -2px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 50px;
+    }
+
+    .about-text {
+      color: #aeb7ca;
+      font-size: 18px;
+    }
+
+    .about-text p {
+      margin-bottom: 18px;
+    }
+
+    .identity-card {
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.035);
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .identity-card h3 {
+      margin-bottom: 18px;
+    }
+
+    .identity-item {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      color: #aeb7ca;
+    }
+
+    .identity-item:last-child {
+      border-bottom: none;
+    }
+
+    .identity-item span {
+      display: block;
+      color: white;
+      font-weight: bold;
+    }
+
+    /* LAB */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .project {
+      border: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,0.055),
+        rgba(255,255,255,0.015)
+      );
+      padding: 25px;
+      border-radius: 18px;
+      min-height: 270px;
+      transition: 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+      border-color: rgba(53,184,255,0.45);
+    }
+
+    .project-number {
+      color: #35b8ff;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    .project h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .project p {
+      color: #9fa9bd;
+      font-size: 15px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      padding: 5px 9px;
+      background: rgba(53,184,255,0.08);
+      border: 1px solid rgba(53,184,255,0.15);
+      border-radius: 20px;
+      color: #75ceff;
+      font-size: 11px;
+    }
+
+    /* BUILD PROCESS */
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .process-item {
+      padding: 22px 12px;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      text-align: center;
+      background: rgba(255,255,255,0.025);
+    }
+
+    .process-item strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    .process-item span {
+      color: #7f8ba1;
+      font-size: 12px;
+    }
+
+    /* SKILLS */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 10px 15px;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 30px;
+      color: #c9d1df;
+      background: rgba(255,255,255,0.03);
+    }
+
+    /* CONTACT */
+
+    .contact-box {
+      border: 1px solid rgba(53,184,255,0.2);
+      background: linear-gradient(
+        135deg,
+        rgba(53,184,255,0.08),
+        rgba(124,58,237,0.06)
+      );
+      border-radius: 24px;
+      padding: 45px 30px;
+      text-align: center;
+    }
+
+    .contact-box h2 {
+      font-size: clamp(32px, 7vw, 60px);
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: #aeb7ca;
+      margin-bottom: 25px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #6f7a90;
+      text-align: center;
+      font-size: 13px;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 750px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      .process {
+        grid-template-columns: 1fr;
+      }
+
+      .process-item {
+        text-align: left;
+      }
+
+      .hero {
+        min-height: 90vh;
+      }
+
+      .hero-subtitle {
+        font-size: 18px;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <a href="#" class="logo">YASH<span>.</span></a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#lab">Lab</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <header class="hero">
+    <div class="glow"></div>
+
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          B.Tech EXCS @ VIT
+        </div>
+
+        <h1>
+          YASH<br>
+          <span class="gradient-text">SHELAR</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          <strong>Programming · Software Development · Data Analytics</strong>
+          <br><br>
+          I turn ideas into working technology.
+        </p>
+
+        <div class="buttons">
+          <a href="#lab" class="btn btn-primary">
+            Explore My Work
+          </a>
+
+          <a href="#contact" class="btn">
+            Let's Connect
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ABOUT -->
+
+  <section id="about">
+    <div class="container">
+
+      <div class="section-label">01 — About</div>
+
+      <h2 class="section-title">
+        More than a student.
+      </h2>
+
+      <div class="about-grid">
+
+        <div class="about-text">
+
+          <p>
+            I'm Yash Shelar, a B.Tech Electronics and Computer Science
+            student at VIT Vidyalankar Institute of Technology.
+          </p>
+
+          <p>
+            I enjoy building practical software, experimenting with
+            technology, and solving problems through programming and data.
+          </p>
+
+          <p>
+            My goal isn't simply to learn technologies.
+            It's to understand problems, build useful solutions,
+            and keep improving them.
+          </p>
+
+        </div>
+
+        <div class="identity-card">
+
+          <h3>What I explore</h3>
+
+          <div class="identity-item">
+            <span>Programming</span>
+            Building logic and solving problems
+          </div>
+
+          <div class="identity-item">
+            <span>Software</span>
+            Turning ideas into applications
+          </div>
+
+          <div class="identity-item">
+            <span>Data</span>
+            Finding insights through analytics
+          </div>
+
+          <div class="identity-item">
+            <span>AI</span>
+            Exploring intelligent applications
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- YASH'S LAB -->
+
+  <section id="lab">
+    <div class="container">
+
+      <div class="section-label">02 — Yash's Lab</div>
+
+      <h2 class="section-title">
+        Things I've built.
+      </h2>
+
+      <div class="projects">
+
+        <article class="project">
+
+          <div class="project-number">PROJECT 01</div>
+
+          <h3>Speech → Text</h3>
+
+          <p>
+            A speech-to-text application designed to convert spoken
+            audio into editable text with export functionality.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Speech Recognition</span>
+            <span class="tag">GUI</span>
+          </div>
+
+        </article>
+
+
+        <article class="project">
+
+          <div class="project-number">PROJECT 02</div>
+
+          <h3>VaultX</h3>
+
+          <p>
+            A desktop data-management project built around practical
+            data-structure concepts and application workflows.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Data Structures</span>
+            <span class="tag">Desktop</span>
+          </div>
+
+        </article>
+
+
+        <article class="project">
+
+          <div class="project-number">PROJECT 03</div>
+
+          <h3>Market Analytics</h3>
+
+          <p>
+            A data-focused project exploring stock information,
+            analysis, visualization, and technology-driven insights.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Data</span>
+            <span class="tag">Analytics</span>
+          </div>
+
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- HOW I BUILD -->
+
+  <section>
+    <div class="container">
+
+      <div class="section-label">03 — Process</div>
+
+      <h2 class="section-title">
+        How I build.
+      </h2>
+
+      <div class="process">
+
+        <div class="process-item">
+          <strong>01</strong>
+          <span>Understand</span>
+        </div>
+
+        <div class="process-item">
+          <strong>02</strong>
+          <span>Design</span>
+        </div>
+
+        <div class="process-item">
+          <strong>03</strong>
+          <span>Code</span>
+        </div>
+
+        <div class="process-item">
+          <strong>04</strong>
+          <span>Test</span>
+        </div>
+
+        <div class="process-item">
+          <strong>05</strong>
+          <span>Improve</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- SKILLS -->
+
+  <section id="skills">
+    <div class="container">
+
+      <div class="section-label">04 — Toolbox</div>
+
+      <h2 class="section-title">
+        Technologies I work with.
+      </h2>
+
+      <div class="skills">
+
+        <span class="skill">Python</span>
+        <span class="skill">Java</span>
+        <span class="skill">C / C++</span>
+        <span class="skill">Data Analytics</span>
+        <span class="skill">Data Visualization</span>
+        <span class="skill">HTML</span>
+        <span class="skill">CSS</span>
+        <span class="skill">JavaScript</span>
+        <span class="skill">Git & GitHub</span>
+        <span class="skill">SQL</span>
+        <span class="skill">AI Tools</span>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- CONTACT -->
+
+  <section id="contact">
+
+    <div class="container">
+
+      <div class="contact-box">
+
+        <div class="section-label">
+          05 — Contact
+        </div>
+
+        <h2>
+          Have an idea?
+        </h2>
+
+        <p>
+          Let's turn it into something real.
+        </p>
+
+        <div class="buttons" style="justify-content:center;">
+
+          <a
+            class="btn btn-primary"
+            href="mailto:yashshelar@example.com">
+            Email Me
+          </a>
+
+          <a
+            class="btn"
+            href="https://www.linkedin.com/in/yash-shelar-971937294/"
+            target="_blank">
+            LinkedIn
+          </a>
+
+          <a
+            class="btn"
+            href="https://github.com/yash0999514"
+            target="_blank">
+            GitHub
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <footer>
+    © 2026 Yash Shelar · Built with curiosity.
+  </footer>
+
+
+</body>
+  </html>
