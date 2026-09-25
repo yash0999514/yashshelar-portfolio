@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add('js');</script>
+<title>Yash Shelar — Portfolio</title>
+<meta name="description" content="Yash Shelar — B.Tech Electronics & Computer Science student, Python developer and data analyst.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,500;0,600;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a href="#home" class="skip-link">Skip to content</a>
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#home" class="brand">Yash Shelar</a>
+    <div class="nav-links" id="navLinks">
+      <a href="#home" class="navlink">Home</a>
+      <a href="#about" class="navlink">About</a>
+      <a href="#experience" class="navlink">Experience</a>
+      <a href="#projects" class="navlink">Projects</a>
+      <a href="#skills" class="navlink">Skills</a>
+      <a href="#education" class="navlink">Education</a>
+      <a href="#contact" class="navlink">Contact</a>
+    </div>
+    <button id="menuBtn" aria-label="Open menu" aria-expanded="false" class="menu-btn">
+      <span></span><span></span>
+    </button>
+  </div>
+  <div id="mobileMenu" class="mobile-menu">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#experience">Experience</a>
+    <a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section id="home" class="hero">
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="glow-orb"></div>
+  <div class="hero-inner">
+    <div class="hero-text reveal">
+      <p class="eyebrow">Mumbai, India</p>
+      <h1>Yash <em>Shelar</em></h1>
+      <p class="hero-role">Python Developer · Data Analyst · Software Engineer</p>
+      <p class="hero-desc">B.Tech Electronics &amp; Computer Science student building practical software — from Python desktop tools and data analysis to Flutter and Flask-based applications.</p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="assets/resume.pdf" download class="btn btn-ghost">Download Resume</a>
+      </div>
+    </div>
+    <div class="hero-photo reveal">
+      <div class="photo-glow"></div>
+      <img src="assets/hero.webp" alt="Portrait of Yash Shelar at his desk">
+    </div>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</section>
+
+<section id="about" class="section">
+  <div class="section-head reveal">
+    <p class="eyebrow">About</p>
+    <h2>Who I Am</h2>
+  </div>
+  <div class="grid-2">
+    <div class="card reveal">
+      <h3>Background</h3>
+      <p>B.Tech Electronics &amp; Computer Science student at Vidyalankar Institute of Technology (2026–2028), Mumbai — following a Diploma in Information Technology from Government Polytechnic Thane (2023–2026) with 94.35%.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Focus Areas</h3>
+      <p>Python development across desktop, data and web — from Tkinter desktop tools and Flask backends to Flutter apps, alongside data analytics and exploratory data analysis.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Career Direction</h3>
+      <p>Experience spanning a data science internship, e-commerce operations, and independent software projects — building practical tools end-to-end, from concept to working product.</p>
+    </div>
+    <div class="card reveal">
+      <h3>Strengths</h3>
+      <p>A solid foundation in OOP, REST APIs and testing, paired with hands-on experience turning ideas into functioning desktop and web applications.</p>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="section narrow">
+  <div class="section-head reveal">
+    <p class="eyebrow">Experience</p>
+    <h2>Where I've Worked</h2>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item reveal">
+      <span class="timeline-dot"></span>
+      <div class="card">
+        <div class="card-row">
+          <h3>Data Scientist Intern</h3>
+          <span class="meta">Jun 2025 — Aug 2025</span>
+        </div>
+        <p class="accent-text">Concept Simplified · Remote</p>
+        <ul class="bullet-list">
+          <li>Applied Python and exploratory data analysis to practical datasets and data-driven problem solving.</li>
+          <li>Developed, tested, and documented analytical solutions in a remote internship environment.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="timeline-item reveal">
+      <span class="timeline-dot"></span>
+      <div class="card">
+        <div class="card-row">
+          <h3>E-Commerce Store Manager</h3>
+          <span class="meta">Sep 2024 — Sep 2025</span>
+        </div>
+        <p class="accent-text">Spiritual Essence Hub</p>
+        <ul class="bullet-list">
+          <li>Managed Shopify storefront operations, including payment setup, domain configuration, products, and daily maintenance.</li>
+          <li>Improved storefront organization and usability for a smoother customer experience.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="section">
+  <div class="section-head reveal">
+    <p class="eyebrow">Projects</p>
+    <h2>What I've Built</h2>
+    <p class="section-sub">A selection of academic and personal projects. More on <a href="https://github.com/yash0999514" target="_blank" rel="noopener" class="inline-link">github.com/yash0999514</a>.</p>
+  </div>
+  <div class="grid-2">
+    <div class="card project-card reveal">
+      <div class="card-row"><h3>VaultX</h3><span class="meta">2026</span></div>
+      <p class="accent-text">Document Vault Application</p>
+      <ul class="bullet-list">
+        <li>Built a Python desktop document-management application with Tkinter/ttkbootstrap and modular UI components.</li>
+        <li>Implemented document adding, date selection, organization, and structured workflows.</li>
+      </ul>
+      <div class="tags small"><span class="tag">Python</span><span class="tag">Tkinter</span><span class="tag">ttkbootstrap</span></div>
+    </div>
+    <div class="card project-card reveal">
+      <div class="card-row"><h3>AI Speech-to-Text Converter</h3><span class="meta">2025 — 2026</span></div>
+      <p class="accent-text">Final Year Project</p>
+      <ul class="bullet-list">
+        <li>Built a Python application for live speech-to-text and audio-file transcription with TXT/DOCX export.</li>
+        <li>Designed a user-friendly GUI with themes, progress feedback, and speech-recognition/local-model support.</li>
+      </ul>
+      <div class="tags small"><span class="tag">Python</span><span class="tag">Speech Recognition</span></div>
+    </div>
+    <div class="card project-card reveal">
+      <div class="card-row"><h3>Placement Management System</h3><span class="meta">2026</span></div>
+      <p class="accent-text">Python</p>
+      <ul class="bullet-list">
+        <li>Developed a CSV-based placement system for student records, company eligibility, and placement workflows.</li>
+        <li>Handled main-program integration, testing, data processing, and project demonstration.</li>
+      </ul>
+      <div class="tags small"><span class="tag">Python</span><span class="tag">CSV</span></div>
+    </div>
+    <div class="card project-card reveal">
+      <div class="card-row"><h3>AI Legal &amp; Government Document Reader</h3><span class="meta">2026</span></div>
+      <p class="accent-text">Concept Project</p>
+      <ul class="bullet-list">
+        <li>Designed a Flask-based concept to simplify complex legal and government documents through AI-assisted explanations.</li>
+        <li>Focused on an accessible document-processing workflow and clear presentation.</li>
+      </ul>
+      <div class="tags small"><span class="tag">Flask</span><span class="tag">Python</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="section">
+  <div class="section-head reveal">
+    <p class="eyebrow">Skills</p>
+    <h2>Tools &amp; Technologies</h2>
+  </div>
+  <div class="grid-2">
+    <div class="reveal">
+      <h3 class="group-title">Languages</h3>
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">Java</span><span class="tag">Dart</span>
+        <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">SQL</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <h3 class="group-title">Frameworks</h3>
+      <div class="tags">
+        <span class="tag">Flutter</span><span class="tag">Tkinter</span><span class="tag">ttkbootstrap</span>
+        <span class="tag">Streamlit</span><span class="tag">Flask</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <h3 class="group-title">Data &amp; Tools</h3>
+      <div class="tags">
+        <span class="tag">Pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span>
+        <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VS Code</span><span class="tag">Jupyter</span>
+      </div>
+    </div>
+    <div class="reveal">
+      <h3 class="group-title">Core Competencies</h3>
+      <div class="tags">
+        <span class="tag">Data Analytics</span><span class="tag">EDA</span><span class="tag">Data Visualization</span>
+        <span class="tag">OOP</span><span class="tag">REST APIs</span><span class="tag">Testing</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="section narrow">
+  <div class="section-head reveal">
+    <p class="eyebrow">Education</p>
+    <h2>Academic Path</h2>
+  </div>
+  <div class="grid-2">
+    <div class="card reveal">
+      <span class="meta">2026 — 2028</span>
+      <h3>B.Tech, Electronics &amp; Computer Science</h3>
+      <p>Vidyalankar Institute of Technology, Mumbai</p>
+    </div>
+    <div class="card reveal">
+      <span class="meta">2023 — 2026</span>
+      <h3>Diploma, Information Technology</h3>
+      <p>Government Polytechnic, Thane · 94.35%</p>
+    </div>
+  </div>
+
+  <div class="section-head reveal" style="margin-top:3.5rem;">
+    <p class="eyebrow">Certifications</p>
+    <h2 style="font-size:1.6rem;">Training &amp; Programs</h2>
+  </div>
+  <div class="grid-3">
+    <div class="card cert-card reveal">
+      <div class="icon small">✓</div>
+      <div>
+        <h3 style="font-size:1rem;">Ultimate Python with Data Science &amp; AI</h3>
+        <p>Training in Python, data analysis, exploratory analysis, and AI-oriented problem solving.</p>
+      </div>
+    </div>
+    <div class="card cert-card reveal">
+      <div class="icon small">✓</div>
+      <div>
+        <span class="meta">Sep 2024</span>
+        <h3 style="font-size:1rem;">IBM SkillBuild Program</h3>
+        <p>SRF Foundation · Industry-oriented technical training.</p>
+      </div>
+    </div>
+    <div class="card cert-card reveal">
+      <div class="icon small">✓</div>
+      <div>
+        <span class="meta">Mar 2025</span>
+        <h3 style="font-size:1rem;">Python &amp; MERN Development Training</h3>
+        <p>Government Polytechnic Thane · Practical training in Python development and MERN-stack fundamentals.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="section narrow center">
+  <div class="reveal">
+    <p class="eyebrow">Contact</p>
+    <h2>Let's build something<br><em>meaningful.</em></h2>
+    <p class="section-sub center">Open to opportunities, collaborations and a good conversation about data &amp; software.</p>
+    <div class="hero-cta center">
+      <a href="mailto:yashshelar165@gmail.com" class="btn btn-primary">Email Me</a>
+      <a href="tel:+917506678178" class="btn btn-ghost">Call</a>
+      <a href="https://www.linkedin.com/in/yash-shelar-971937294" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <a href="https://github.com/yash0999514" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
+    </div>
+    <p class="fine-print">yashshelar165@gmail.com · +91 75066 78178</p>
+  </div>
+</section>
+
+<footer>© 2026 Yash Shelar. Built with intention.</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
