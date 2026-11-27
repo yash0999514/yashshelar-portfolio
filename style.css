@@ -60,7 +60,7 @@ nav a{font-size:14px;font-weight:600;padding:10px 24px}
 .profile-panel img { display: block; position: relative; width: 100%; height: auto; border-radius: 5.5rem 1rem 1rem 1rem; }
 .stack span { padding: 4px 12px; border: 1px solid var(--line); border-radius: 99px; font-size: .82rem; }
 #projects { border-top: 1px solid var(--line); padding-top: 3rem; }
-#about{width:min(100%,1024px);margin:auto;padding:0 16px 128px;scroll-margin-top:6rem}
+#about{width:min(100%,1024px);margin:auto;padding:0 16px 128px}
 #about>.mosaic{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:9rem auto 9rem;gap:12px}
 .mosaic>*{border:1px solid var(--line);border-radius:16px;background:var(--panel);padding:18px;min-width:0}
 .mosaic h3{font-size:1.15rem}.mosaic p,.facts span,.city span{font-size:.92rem;color:var(--muted)}
@@ -109,12 +109,12 @@ header{padding:10px 0}.bar{padding:0 12px;gap:6px;grid-template-columns:auto 1fr
 .project-screen{aspect-ratio:auto;min-height:16rem}
 #skills dl,.resource-grid,#education ul,#education>div,#experience>div{grid-template-columns:1fr}
 }
-@media(max-width:380px){header .brand{display:none}.bar{grid-template-columns:1fr auto}}
+
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 .opening-mark { display: none; }
 @media (prefers-reduced-motion: no-preference) {
-  body:not(:has(:target)) .opening-mark {
+  .play-intro .opening-mark {
     position: fixed;
     inset: 0;
     z-index: 10;
@@ -132,9 +132,9 @@ header{padding:10px 0}.bar{padding:0 12px;gap:6px;grid-template-columns:auto 1fr
     animation: mark-in .42s ease-out both;
   }
   .opening-mark i { color: var(--accent); font-style: normal; }
-  body:not(:has(:target)) .landing h1 { animation-delay: .70s; }
-  body:not(:has(:target)) .profile-panel { animation-delay: .76s; }
-  body:not(:has(:target)) .pills a { animation-delay: 1.02s; }
+  .play-intro .landing h1 { animation-delay: .70s; }
+  .play-intro .profile-panel { animation-delay: .76s; }
+  .play-intro .pills a { animation-delay: 1.02s; }
   body:focus-within .opening-mark { visibility: hidden !important; }
 }
 @keyframes opening-curtain {
@@ -150,13 +150,13 @@ header{padding:10px 0}.bar{padding:0 12px;gap:6px;grid-template-columns:auto 1fr
 /* The page is readable at rest, including when scripting is unavailable. */
 @media (prefers-reduced-motion: no-preference) {
   .landing { perspective: 1100px; }
-  .landing h1 { animation: title-in .6s cubic-bezier(.2,.72,.25,1) both; }
-  .profile-panel {
+  .play-intro .landing h1 { animation: title-in .6s .70s cubic-bezier(.2,.72,.25,1) both; }
+  .play-intro .profile-panel {
     transform-origin: center 75%;
-    animation: panel-in .85s .1s cubic-bezier(.18,.72,.22,1) both;
+    animation: panel-in .85s .76s cubic-bezier(.18,.72,.22,1) both;
   }
-  .pills a { animation: title-in .45s .45s both; }
-  .pills a:nth-child(2) { animation-delay: .51s; }
+  .play-intro .pills a { animation: title-in .45s 1.02s both; }
+
   #projects article { perspective: 1000px; }
   .project-screen { transform: rotateX(var(--scroll-tilt,0deg)) rotateY(var(--pointer-tilt,0deg)); }
   .motion-pending { opacity: 0; transform: translateY(15px) scale(.95); }
@@ -173,4 +173,43 @@ header{padding:10px 0}.bar{padding:0 12px;gap:6px;grid-template-columns:auto 1fr
 @keyframes tile-in {
   from { opacity: 0; transform: translateY(15px) scale(.95); }
   to { opacity: 1; transform: none; }
+}
+
+#menu-toggle { display:none; }
+#section-nav a[aria-current] { background:#e8eaff; color:var(--accent); }
+#projects > .project-layout { display:grid; grid-template-columns:minmax(12rem,16rem) minmax(0,42rem); justify-content:center; gap:clamp(2rem,6vw,5rem); max-width:none; }
+.project-index { align-self:start; position:sticky; top:7.5rem; }
+.project-index p { font-size:.85rem; color:var(--muted); margin-bottom:.6rem; }
+.index-links { display:grid; }
+.index-links a { padding:.65rem .85rem; border-left:2px solid var(--line); text-decoration:none; font-size:.94rem; }
+.index-links a[aria-current] { border-color:var(--accent); color:var(--accent); background:#eeeffb; font-weight:600; }
+#project-menu { display:none; }
+.project-list { display:grid; gap:3rem; min-width:0; }
+.project-list > a { justify-self:start; }
+.brand-icon { display:inline-block; vertical-align:-.13em; margin-right:.18em; }
+.copy-email, #menu-toggle { font:inherit; font-size:.9rem; border-radius:99px; padding:.55rem 1rem; background:white; color:var(--text); border:1px solid var(--line); cursor:pointer; }
+.copy-email { margin:.35rem .5rem; }
+.copy-status { font-size:.88rem; color:var(--muted); }
+button:focus-visible,summary:focus-visible { outline:2px solid var(--accent); outline-offset:3px; }
+@media(max-width:850px) {
+  #projects > .project-layout { grid-template-columns:minmax(0,40rem); gap:1rem; }
+  .project-index { top:6.4rem; z-index:2; background:var(--bg); }
+  .project-index > p,.project-index > .index-links { display:none; }
+  #project-menu { display:block; border:1px solid var(--line); border-radius:12px; background:white; }
+  #project-menu summary { padding:.65rem .85rem; cursor:pointer; font-weight:600; }
+  #project-menu .index-links { position:absolute; left:0; right:0; background:white; border:1px solid var(--line); border-radius:8px; box-shadow:0 8px 20px #20233515; }
+  .project-list article { scroll-margin-top:3.5rem; }
+}
+@media(max-width:767px) {
+  header { background:var(--bg); }
+  .bar { position:relative; grid-template-columns:1fr auto auto; gap:.5rem; }
+  header .brand { display:block; }
+  .resume { grid-column:2; grid-row:1; font-size:.88rem; padding:.52rem .9rem; }
+  .js #menu-toggle { display:block; grid-row:1; grid-column:3; }
+  #section-nav { grid-column:1/-1; flex-wrap:wrap; }
+  .js #section-nav { display:none; position:absolute; right:12px; top:calc(100% + 5px); height:auto; min-width:12rem; background:white; border-radius:16px; padding:.4rem; }
+  .js #menu-toggle[aria-expanded="true"] + #section-nav { display:grid; }
+  #section-nav a { padding:.65rem .85rem; font-size:.94rem; }
+  .project-index { top:4.8rem; }
+  .copy-email { margin:.7rem .35rem .3rem 0; }
 }
