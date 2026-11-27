@@ -46,12 +46,17 @@ nav a{font-size:14px;font-weight:600;padding:10px 24px}
 .hero{min-height:100svh;display:grid;place-items:center;padding:108px 16px 100px}
 .landing{width:min(100%,768px);text-align:center}
 h1{font-size:clamp(2rem,4vw,3.75rem);letter-spacing:-.055em;margin:0 0 16px}
-.profile-panel{border:1px solid var(--line);border-radius:24px;padding:20px;background:white;box-shadow:0 18px 50px #203d2c10}
+.profile-panel{width:min(100%,29rem);margin-inline:auto;border:1px solid var(--line);border-radius:24px;padding:20px;background:white;box-shadow:0 18px 50px #203d2c10}
 .profile-panel img{display:block;width:clamp(140px,20vw,220px);aspect-ratio:1;height:auto;object-fit:cover;border-radius:22px;margin:0 auto 12px}
 .profile-panel p{font-size:1.05rem;font-weight:550}.profile-panel p span{color:var(--muted)}
 .pills{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:16px}
 .pills a,.stack span{padding:4px 12px;border:1px solid var(--line);border-radius:99px;font-size:.82rem;text-decoration:none}
-.pills a:hover{background:#e0ece5}
+.profile-panel .hero-projects { max-width: 35ch; margin: .6rem auto 0; color: var(--muted); font-size: .96rem; font-weight: 400; }
+.hero-projects a { color: var(--violet); font-weight: 600; text-decoration-thickness: 1px; }
+.pills a { padding: .5rem 1rem; }
+.pills a:first-child { background: var(--text); border-color: var(--text); color: white; }
+.pills a:hover { background: #e0ece5; }
+.pills a:first-child:hover { background: #315a4f; }
 .scroll{display:inline-flex;flex-direction:column;margin-top:24px;color:var(--muted);text-decoration:none;font-size:.78rem}
 #about{width:min(100%,1024px);margin:auto;padding:0 16px 128px;scroll-margin-top:6rem}
 #about>.mosaic{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:9rem auto 9rem;gap:12px}
@@ -111,8 +116,6 @@ header{padding:10px 0}.bar{padding:0 12px;gap:6px;grid-template-columns:auto 1fr
   }
   .pills a { animation: title-in .45s .45s both; }
   .pills a:nth-child(2) { animation-delay: .51s; }
-  .pills a:nth-child(3) { animation-delay: .57s; }
-  .pills a:nth-child(4) { animation-delay: .63s; }
   .scroll { animation: title-in .6s .65s both; }
   #projects article { perspective: 1000px; }
   .project-screen { transform: rotateX(var(--scroll-tilt,0deg)) rotateY(var(--pointer-tilt,0deg)); }
