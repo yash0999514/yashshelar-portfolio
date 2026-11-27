@@ -100,3 +100,34 @@ header{padding:10px 0}.bar{padding:0 12px;gap:6px;grid-template-columns:auto 1fr
 }
 @media(max-width:380px){header .brand{display:none}.bar{grid-template-columns:1fr auto}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* The page is readable at rest, including when scripting is unavailable. */
+@media (prefers-reduced-motion: no-preference) {
+  .landing { perspective: 1100px; }
+  .landing h1 { animation: title-in .6s cubic-bezier(.2,.72,.25,1) both; }
+  .profile-panel {
+    transform-origin: center 75%;
+    animation: panel-in .85s .1s cubic-bezier(.18,.72,.22,1) both;
+  }
+  .pills a { animation: title-in .45s .45s both; }
+  .pills a:nth-child(2) { animation-delay: .51s; }
+  .pills a:nth-child(3) { animation-delay: .57s; }
+  .pills a:nth-child(4) { animation-delay: .63s; }
+  .scroll { animation: title-in .6s .65s both; }
+  #projects article { perspective: 1000px; }
+  .project-screen { transform: rotateX(var(--scroll-tilt,0deg)) rotateY(var(--pointer-tilt,0deg)); }
+  .motion-pending { opacity: 0; transform: translateY(15px) scale(.95); }
+  .motion-visible { animation: tile-in .65s var(--reveal-delay,0ms) cubic-bezier(.18,.75,.22,1) backwards; }
+}
+@keyframes title-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes panel-in {
+  from { opacity: 0; transform: translateY(24px) rotateX(12deg) scale(.95); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes tile-in {
+  from { opacity: 0; transform: translateY(15px) scale(.95); }
+  to { opacity: 1; transform: none; }
+}
